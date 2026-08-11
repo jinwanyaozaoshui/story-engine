@@ -2,18 +2,18 @@
 
 ## Input
 
-> 主角必须在三天内拿到一份被封存的资料，否则同伴会被组织排除。资料位于封闭机构。主角可以伪装进入，也可以求助旧同学，但两种方式都会留下痕迹。成功后，他拿到资料，同时被机构标记为可疑人员。
+> The protagonist must obtain a sealed document within three days or an ally will be expelled from the organization. The document is stored inside a restricted facility. The protagonist can enter in disguise or ask a former classmate for help, but either route leaves an identity trace. The document is recovered, but the facility flags the protagonist as suspicious.
 
 ## Story Engine analysis
 
-- `[已确定]` 当前目标：三天内取得资料。
-- `[已确定]` 不行动代价：同伴被组织排除。
-- `[已确定]` 限制：封闭机构、三天期限、两条路径都会留下身份痕迹。
-- `[已确定]` 有代价选择：伪装进入 / 求助旧同学。
-- `[已确定]` 结算：取得资料。
-- `[已确定]` 永久残留：被机构标记为可疑人员，属于“公开标签/身份风险”变化。
-- `[无法验证]` 下一阶段牵引尚未给出。
+- `[CONFIRMED]` Current goal: obtain the document within three days.
+- `[CONFIRMED]` Cost of inaction: the ally is expelled.
+- `[CONFIRMED]` Constraints: restricted facility, three-day deadline, both paths leave traces.
+- `[CONFIRMED]` Costly choices: disguise / ask the former classmate.
+- `[CONFIRMED]` Settlement: the document is obtained.
+- `[CONFIRMED]` Persistent residue: the facility marks the protagonist as suspicious, changing public-label/identity risk.
+- `[UNVERIFIABLE]` No next-stage pull is supplied yet.
 
 ## Suggested repair
 
-- `[建议]` 下一阶段入口直接依赖“可疑人员”标签，例如访问受限、被调查或必须借助旧同学的人情解决新限制。
+- `[SUGGESTION]` Make the next-stage entry depend directly on the suspicious-person label—for example restricted access, investigation, or a debt to the former classmate that must be used to bypass a new constraint.
