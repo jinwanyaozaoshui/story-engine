@@ -1,46 +1,46 @@
-# Validation Boundaries / 验证边界
+# Validation Boundaries
 
-Story Engine 的规则分为两类：**正向结构规则**（SE-RC-*）和**风险诊断规则**（SE-F-*）。二者都用于分析用户提供的材料，而不是给整部作品做绝对质量判定。
+Story Engine contains two rule classes: **positive structure rules** (`SE-RC-*`) and **risk-diagnosis rules** (`SE-F-*`). Both analyze supplied material; neither exists to issue absolute quality verdicts on an entire work.
 
-## 使用强度
+## Strength of claims
 
-| 规则 | 公共使用定位 | 是否允许硬判 |
+| Rule | Public role | Hard judgment allowed? |
 |---|---|---|
-| SE-RC-001 | 基础阶段结构检查 | 只可直接指出输入材料中缺失的启动、目标、限制、选择、反馈或残留。 |
-| SE-RC-002 | 资源稀缺专项 | 否。只能提示资源功能不足、资源只剩数值或资源转型风险。 |
-| SE-RC-003 | 反目标专项 | 否。只能提示外部评价不自洽、误读固定或公式化风险。 |
-| SE-RC-004 | 现实/隐藏双引擎 | 可对输入材料中“某一端长期无实际功能”作强风险提示，但不能据此判整部作品失败。 |
-| SE-RC-005 | 规则压力专项 | 否。只能提示规则复杂化副作用和人物功能弱化风险。 |
-| SE-F-001 | 循环重启风险 | 否。需要相邻或连续阶段材料与删除测试。 |
-| SE-F-002 | 公式化风险 | 否。需要至少三轮可比较结构。 |
-| SE-F-003 | 多发动机失衡风险 | 否。需要连续阶段、功能检查与删除测试。 |
+| `SE-RC-001` | Basic stage-structure check | May directly identify missing activation, goal, constraints, choices, feedback, or residue in the supplied material. |
+| `SE-RC-002` | Resource-scarcity specialist | No. Flag weak resource function, number-only rewards, or transition risk. |
+| `SE-RC-003` | Anti-goal specialist | No. Flag incoherent external evaluation, fixed misunderstanding, or repetition risk. |
+| `SE-RC-004` | Reality/hidden dual engine | May strongly flag a side that has no sustained function, but not declare the whole work failed. |
+| `SE-RC-005` | Rule-pressure specialist | No. Flag rule-complexity side effects and weakened character agency. |
+| `SE-F-001` | Restart/continuity risk | No. Requires adjacent/continuous material and deletion testing. |
+| `SE-F-002` | Formulaic repetition risk | No. Requires at least three comparable cycles. |
+| `SE-F-003` | Multi-engine imbalance risk | No. Requires continuous-stage evidence, functional checks, and deletion testing. |
 
-## 必须保留的边界
+## Boundaries that must remain
 
-- 固定题材循环不自动等于公式化。
-- 生产性变体应优先保留。
-- 换地图、职业、任务或能力不自动等于循环重启。
-- 单元剧允许部分状态重置，但应保留最低限度的累积后果。
-- 阶段性主次变化不自动等于多发动机失衡。
-- 发动机转型不等于失败。
-- 终局收束不要求继续制造下一轮目标。
-- 规则复杂化不自动等于多发动机失衡。
-- 规则越复杂，越要检查人物选择、情绪与关系后果是否仍能改变结果。
+- A stable genre loop is not automatically formulaic.
+- Productive variation should be preserved.
+- Changing map, job, task, or power does not automatically mean restart.
+- Episodic fiction may reset some state while still preserving minimum cumulative consequence.
+- Temporary changes in primary/secondary engine weight do not automatically mean imbalance.
+- Engine transition is not engine failure.
+- Terminal closure does not require another objective.
+- Rule complexity does not automatically imply multi-engine imbalance.
+- As rules become more complex, check whether character choice, emotion, and relationship consequences still change outcomes.
 
-## 输入不足时
+## When evidence is insufficient
 
-如果材料不足以执行所需测试，输出应使用 `[无法验证]`、`[风险]`、`[建议]` 或 `[假设]`，而不是补写未知设定后宣布规则成立。
+Use `[UNVERIFIABLE]`, `[RISK]`, `[SUGGESTION]`, or `[ASSUMPTION]`. Do not invent missing canon and then announce that a rule has been proven.
 
-## 八类状态残留
+## Eight residue categories
 
-Story Engine 检查以下状态是否被阶段结果真正改变：身份、权限、资源、责任、关系、认知、公开标签、媒介或场景状态。每个阶段不要求机械覆盖全部八类。
+Story Engine checks whether stage results change identity, permission/access, resources, responsibility, relationships, knowledge, public label, and medium/location state. A stage need not cover every category.
 
-## 能力与世界规则
+## Powers and world rules
 
-只使用用户已经确认的适用范围、触发条件、成本与媒介限制（若有）。不得把单个示例中的能力限制扩写为所有项目的通用法则。
+Use only the scope, triggers, costs, and medium constraints already confirmed by the user. Do not generalize one example's limits into a universal rule.
 
-## 行为评估与确定性测试
+## Behavioral evaluation vs deterministic validation
 
-- `tests/run_tests.py` 只做**确定性仓库验证**：文件、JSON、规则 ID、字段、引用路径与公开信息扫描。
-- `tests/test-prompts.json` 定义的是**模型行为评估样例**。是否通过必须由真实模型/Agent 运行后根据预期行为和禁止行为判断。
-- 确定性验证通过，不等于模型行为评估自动通过。
+- `tests/run_tests.py` performs **deterministic repository validation**: files, JSON, rule IDs, fields, local references, and public-hygiene checks.
+- `tests/test-prompts.json` defines **model/agent behavioral-evaluation cases**. A pass claim requires an actual model/agent run evaluated against expected and forbidden behaviors.
+- Deterministic repository validation passing does not imply model behavioral evaluation passing.
