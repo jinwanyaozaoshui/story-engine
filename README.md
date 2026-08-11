@@ -62,12 +62,12 @@ Check whether stage 2 actually depends on the consequences of stage 1.
 
 Story Engine distinguishes:
 
-- `[已确定]` confirmed by the user;
-- `[不可修改]` explicitly immutable;
-- `[建议]` replaceable proposal;
-- `[推导]` inference from confirmed material;
-- `[假设]` temporary assumption for testing;
-- `[无法验证]` insufficient evidence.
+- `[CONFIRMED]` confirmed by the user;
+- `[IMMUTABLE]` explicitly immutable;
+- `[SUGGESTION]` replaceable proposal;
+- `[INFERENCE]` inference from confirmed material;
+- `[ASSUMPTION]` temporary assumption for testing;
+- `[UNVERIFIABLE]` insufficient evidence.
 
 New characters, organizations, powers, rules, events, or endings must not be presented as confirmed canon unless the user supplied or approved them.
 
