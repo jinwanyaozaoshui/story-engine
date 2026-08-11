@@ -1,39 +1,39 @@
-# 删除测试与反事实测试
+# Deletion and Counterfactual Tests
 
-## 总原则
+## Principle
 
-测试用于判断结构功能，不用于给作品贴失败标签。若输入不足，输出“无法验证”。
+These tests estimate structural function; they do not label a work as a failure. If evidence is insufficient, return `[UNVERIFIABLE]`.
 
-## 删除测试
+## Deletion tests
 
-| 测试 | 使用场景 | 判定问题 |
+| Test | Use case | Diagnostic question |
 |---|---|---|
-| 删除上一阶段 | 相邻阶段、跨卷、换地图、换职业、换能力 | 下一阶段是否仍能原样成立；旧身份、权限、资源、责任、关系、认知、公开标签、媒介或场景状态是否被清零。 |
-| 删除现实端 | 现实与隐藏双引擎 | 隐藏线是否只剩独立冒险；现实端是否实际提出目标、限制或回流。 |
-| 删除隐藏端 | 现实与隐藏双引擎 | 现实线是否缺少高压来源、异常限制或真相牵引。 |
-| 删除某发动机 | 多发动机并行 | 删除某条线后主要剧情是否基本成立；该线是否长期不足两项功能。 |
-| 删除任务发布者 | 过度派任务风险 | 没有外部派任务后，剧情是否仍能由责任、关系、资源或现实压力启动。 |
-| 删除长期线索 | 长期真相线 | 长期线索是否压倒当前阶段目标；是否从“改变判断”退化为“直接发任务”。 |
+| Delete the previous stage | Adjacent stages, cross-volume, new map/job/power | Can the next stage still begin almost unchanged? Were inherited identity, access, resources, responsibility, relationships, knowledge, public labels, or medium/location states effectively reset? |
+| Delete the reality side | Reality/hidden dual engine | Does the hidden side become a detached adventure? Does the reality side actually create goals, constraints, or return flow? |
+| Delete the hidden side | Reality/hidden dual engine | Does the reality side lose high-pressure causes, abnormal constraints, or truth-driven decision changes? |
+| Delete one engine | Multiple engines | Does the main plot still work almost unchanged? Has that line provided fewer than two functions across multiple stages? |
+| Delete the task giver | Over-assignment risk | Without external assignments, can responsibility, relationships, resources, or real-world pressure still activate events? |
+| Delete the long-term clue | Long-truth line | Does the long-term clue overwhelm the current-stage goal? Has it degraded from changing judgment to simply issuing tasks? |
 
-## 反事实测试
+## Counterfactual tests
 
-| 测试 | 目的 |
+| Test | Purpose |
 |---|---|
-| 部分成功测试 | 检查半成功是否留下更强责任、限制或关系后果，而非照样奖励。 |
-| 旧办法失效测试 | 检查主角是否长期使用同一解法；让环境学习、对手封锁或规则反利用旧办法。 |
-| 配角拒绝工具化测试 | 检查配角是否长期只提供信息、牺牲或惊讶；让配角有自己的目标和拒绝。 |
-| 资源反噬测试 | 检查资源是否只涨数值；让资源带监管、债务、期限、公开风险或身份责任。 |
-| 规则复杂度测试 | 检查规则复杂化是否压低人物选择；复杂不等于失衡，人物仍要改变结果。 |
-| 能力变化承接测试 | 检查能力变化是否被误写成身份、责任、关系和剧情状态清零。 |
-| 发动机转型测试 | 检查旧发动机是否完成使命并转为条件、责任、终局筹码或主题落点。 |
-| 终局收束测试 | 检查终局是否应停止制造下一轮目标，改看人员安置、后果回收、关系和主题落点。 |
+| Partial-success test | Check whether partial success creates stronger responsibility, constraint, or relationship consequences rather than delivering the same reward. |
+| Old-solution failure test | Check whether the protagonist keeps using the same solution; let the environment learn, opponents block, or rules exploit that old solution. |
+| Supporting-character refusal test | Check whether supporting characters only provide information, sacrifice, or surprise; give them independent goals and refusal capacity. |
+| Resource backlash test | Check whether resources only increase a number; attach oversight, debt, deadlines, public risk, or identity responsibility. |
+| Rule-complexity test | Check whether more complicated rules suppress meaningful character choice; complexity itself is not imbalance. |
+| Power-change continuity test | Check whether a power change is being mistaken for a reset of identity, duty, relationships, and plot state. |
+| Engine-transition test | Check whether an old engine has completed its role and becomes a condition, duty, terminal stake, or thematic landing point. |
+| Terminal-closure test | Check whether the ending should stop opening new goals and instead resolve people, consequences, relationships, promises, labels, and medium/location state. |
 
-## 风险等级建议
+## Risk-level guidance
 
-| 风险 | 低 | 中 | 高 |
+| Risk | Low | Medium | High |
 |---|---|---|---|
-| SE-F-001 循环重启 | 下一阶段继承明确残留 | 继承有但入口弱 | 删除上一阶段后仍基本原样成立，且多类残留被清零 |
-| SE-F-002 公式化 | 循环承诺稳定但变量变化 | 三轮中部分变量重复 | 三轮以上高度同构，旧办法长期有效，配角和反馈固定 |
-| SE-F-003 多发动机失衡 | 主辅分工清楚 | 一条线阶段性弱化 | 连续多个阶段一条线不足两项功能，删除后主剧情仍成立 |
+| `SE-F-001` restart | Next stage clearly inherits prior residue | Inheritance exists but the entry is weak | Deleting the prior stage barely changes the next one and several residue categories reset |
+| `SE-F-002` formulaic repetition | Stable promise with meaningful variable changes | Some important variables repeat across three loops | Three or more loops are highly isomorphic, old solutions keep working, supporting roles and feedback stay fixed |
+| `SE-F-003` multi-engine imbalance | Primary/secondary roles are clear | One line temporarily weakens | Across several stages one line contributes fewer than two functions and can be deleted with little effect |
 
-风险等级只描述输入材料的结构风险，不等于作品质量判定。
+Risk levels describe structural risk in supplied material; they are not overall quality ratings.
