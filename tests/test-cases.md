@@ -1,262 +1,261 @@
-# Story Engine 模型行为评估用例
+# Story Engine Behavioral Evaluation Cases
 
-本文件只描述输入、预期规则和通过标准，不包含任何“已通过”结论。真实模型/Agent 的结果应通过实际运行后记录。
+This file defines inputs, expected rules, and pass criteria only. It does not claim that any model has already passed. Real model/agent results must be recorded after an actual run.
 
 ## SE-T001 — should-trigger
 
-**输入**
+**Input**
 
-> 我只有一个点子：普通人突然获得奇怪能力，被卷进城市异常事件。帮我看看能不能发展。
+> I only have one idea: an ordinary person suddenly gains a strange ability and gets pulled into anomalous events in a city. Can this develop into a sustainable story?
 
-**预期触发**
+**Expected trigger**
 
 - expected_trigger: `true`
 - expected_rules: `SE-RC-001`
 
-**预期行为**
+**Expected behavior**
 
-- 按输入不足处理，识别这是灵感补全或快速诊断，不把未知内容补成正式设定，并给出最小补充字段或带假设标记的候选方向。
+- Treat the input as incomplete; identify quick diagnosis or idea completion mode; do not turn unknown details into canon; provide minimal missing fields or candidate directions marked as assumptions/suggestions.
 
-**禁止行为**
+**Forbidden behavior**
 
-- 擅自确定主角职业、组织、能力细节或结局
-- 宣布完整剧情发动机已经成立
-- 连续追问大量问题
+- Invent the protagonist's job, organization, power details, or ending as confirmed fact.
+- Announce that a complete plot engine is already established.
+- Ask a long questionnaire before offering any diagnosis.
 
-**通过标准**
+**Pass criteria**
 
-- 实际触发 story-engine
-- 实际规则包含 SE-RC-001
-- 输出包含输入不足或无法验证
-- 输出包含假设或建议标记
-- 没有把未知设定写成已确定
+- Story Engine is triggered.
+- `SE-RC-001` is used.
+- Output acknowledges insufficient evidence or unverifiable items.
+- Output uses assumption or suggestion labels.
+- Unknown canon is not presented as confirmed.
 
 ## SE-T002 — should-trigger
 
-**输入**
+**Input**
 
-> 主角需要在三天内拿到一份被封存的资料，否则同伴会被组织排除。资料在封闭机构里，主角可以伪装进入，也可以求助旧同学，但两种方式都会留下痕迹。成功后他拿到资料，也被机构记录为可疑人员。
+> The protagonist must obtain a sealed document within three days or an ally will be expelled from the organization. The document is inside a restricted facility. The protagonist can enter in disguise or ask a former classmate for help, but both choices leave traces. The document is obtained, but the facility records the protagonist as suspicious.
 
-**预期触发**
+**Expected trigger**
 
 - expected_trigger: `true`
 - expected_rules: `SE-RC-001`
 
-**预期行为**
+**Expected behavior**
 
-- 识别启动、当前目标、不行动代价、限制、有代价选择、结果和永久状态残留。
+- Identify activation/goal, inaction cost, constraints, costly choices, settlement, and persistent residue.
 
-**禁止行为**
+**Forbidden behavior**
 
-- 忽略时间限制
-- 只把拿到资料写成奖励
-- 遗漏可疑人员这一公开标签残留
+- Ignore the time limit.
+- Treat obtaining the document as the only outcome.
+- Omit the suspicious-person public-label residue.
 
-**通过标准**
+**Pass criteria**
 
-- 实际触发 story-engine
-- 实际规则包含 SE-RC-001
-- 识别三天内拿到资料为当前目标
-- 识别同伴被排除为不行动代价
-- 识别封闭机构和留下痕迹为限制
-- 识别伪装进入和求助旧同学为选择
-- 识别被记录为可疑人员为永久残留
+- Story Engine is triggered.
+- `SE-RC-001` is used.
+- The three-day document objective is identified as the current goal.
+- The ally's expulsion is identified as the cost of inaction.
+- The restricted facility and traces are identified as constraints.
+- Disguise and asking the former classmate are identified as choices.
+- The suspicious-person label is identified as persistent residue.
 
 ## SE-T003 — should-trigger
 
-**输入**
+**Input**
 
-> 阶段一：主角救下一个证人，因此欠下某组织人情，也被对手记住。阶段二：主角去外城调查新事件，开场是陌生人发来委托，旧证人、组织人情和对手追踪都没有影响调查。
+> Stage 1: the protagonist saves a witness, owes an organization a favor, and is remembered by an opponent. Stage 2: the protagonist travels to another city for a new incident after a stranger sends a commission; the witness, the favor, and the opponent's pursuit do not affect the investigation.
 
-**预期触发**
+**Expected trigger**
 
 - expected_trigger: `true`
 - expected_rules: `SE-RC-001, SE-F-001`
 
-**预期行为**
+**Expected behavior**
 
-- 执行删除上一阶段测试，判断阶段二在删除阶段一后仍基本成立，提示循环重启风险但不判作品失败，并提出承接修补。
+- Run the delete-previous-stage test; notice Stage 2 survives almost unchanged; flag restart/continuity risk without declaring the work failed; propose a continuity repair.
 
-**禁止行为**
+**Forbidden behavior**
 
-- 把换外城自动判为重启
-- 把风险规则写成作品失败硬判
-- 忽略组织人情、对手记住、证人三类残留
+- Treat changing cities as automatic restart.
+- Turn a risk rule into a quality verdict.
+- Ignore the witness, favor, or opponent as inherited residue.
 
-**通过标准**
+**Pass criteria**
 
-- 实际触发 story-engine
-- 实际规则包含 SE-F-001
-- 输出删除上一阶段测试
-- 判定阶段二基本仍成立
-- 风险表述不是硬判
-- 修补建议使用旧人情、证人或对手追踪之一
+- Story Engine is triggered.
+- `SE-F-001` is used.
+- A delete-previous-stage test appears.
+- Stage 2 is judged to remain mostly intact without Stage 1.
+- The risk wording is not a hard verdict.
+- A repair uses at least one inherited residue item.
 
 ## SE-T004 — should-trigger
 
-**输入**
+**Input**
 
-> 我有三个连续事件，都是收到任务、进入危险地点、发现受害者线索、用同一个能力破解、获得奖励、再收到下一条任务。三个事件只换了地点名和敌人称呼。是不是太公式？
+> I have three consecutive events. Each begins with receiving a task, entering a dangerous location, finding a victim clue, using the same ability to solve the obstacle, receiving a reward, and getting another task. Only the location and enemy names change. Is this too formulaic?
 
-**预期触发**
+**Expected trigger**
 
 - expected_trigger: `true`
 - expected_rules: `SE-F-002`
 
-**预期行为**
+**Expected behavior**
 
-- 建立三轮比较口径，区分固定题材承诺、生产性变体和公式化风险；在此输入中提示公式化风险较高。
+- Compare the three cycles; separate stable genre promise, productive variation, and formulaic risk; in this input, flag relatively high repetition risk.
 
-**禁止行为**
+**Forbidden behavior**
 
-- 把危险地点任务这一题材承诺本身判失败
-- 只因地点名或敌人名变化就说结构已变化
-- 忽略旧办法长期有效
+- Treat dangerous-location tasks themselves as a failure.
+- Treat renamed locations/enemies as meaningful structural change by themselves.
+- Ignore that the same solution keeps working.
 
-**通过标准**
+**Pass criteria**
 
-- 实际触发 story-engine
-- 实际规则包含 SE-F-002
-- 输出三分法：题材承诺、生产性变体、公式化风险
-- 指出主要结构变量高度同构
-- 没有把题材循环直接等同失败
+- Story Engine is triggered.
+- `SE-F-002` is used.
+- Output distinguishes genre promise, productive variation, and formulaic risk.
+- Major structural variables are identified as highly isomorphic.
+- Genre repetition is not automatically equated with failure.
 
 ## SE-T005 — should-trigger
 
-**输入**
+**Input**
 
-> 主角白天经营一家小店，必须还清租金并留住员工；夜里调查异常事件。夜间调查获得的特殊物品可以改善店铺安全，但也吸引监管检查。员工开始怀疑主角隐瞒真相，影响下一次行动选择。
+> By day, the protagonist runs a small shop and must pay rent and retain employees; at night, the protagonist investigates anomalous incidents. A special object obtained at night improves shop security but attracts regulatory inspection. Employees begin to suspect the protagonist is hiding something, affecting the next decision.
 
-**预期触发**
+**Expected trigger**
 
 - expected_trigger: `true`
 - expected_rules: `SE-RC-004, SE-F-003`
 
-**预期行为**
+**Expected behavior**
 
-- 识别现实线和隐藏线各自功能，判断隐藏结果回流现实端，并用多发动机功能表检查而不把阶段性主次变化硬判为失衡。
+- Identify the functions of the reality and hidden lines, show hidden-to-reality return flow, and use multi-engine function checks without treating temporary imbalance as automatic failure.
 
-**禁止行为**
+**Forbidden behavior**
 
-- 把特殊物品只写成奖励
-- 忽略租金、员工和监管检查
-- 把双线并行直接判失衡
+- Treat the special object as a reward only.
+- Ignore rent, employees, or regulatory inspection.
+- Declare any dual-line structure imbalanced by default.
 
-**通过标准**
+**Pass criteria**
 
-- 实际触发 story-engine
-- 实际规则包含 SE-RC-004
-- 实际规则包含 SE-F-003
-- 识别现实目标和隐藏目标
-- 识别隐藏结果回流现实端
-- 未把多线结构硬判失败
+- Story Engine is triggered.
+- `SE-RC-004` and `SE-F-003` are used.
+- Both reality and hidden goals are identified.
+- Hidden results are shown feeding back into reality.
+- No hard failure verdict is issued solely because there are multiple lines.
 
 ## SE-T006 — should-trigger
 
-**输入**
+**Input**
 
-> 终局里主角关闭了长期威胁，主要任务变成安置幸存者、处理暴露后果、偿还承诺，并决定是否保留某个危险装置。故事准备结束。
+> In the ending, the protagonist closes the long-term threat. The remaining work is to settle survivors, handle exposure consequences, repay promises, and decide whether to keep a dangerous device. The story is preparing to end.
 
-**预期触发**
+**Expected trigger**
 
 - expected_trigger: `true`
 - expected_rules: `SE-RC-001`
 
-**预期行为**
+**Expected behavior**
 
-- 识别终局收束边界，不要求强行制造下一轮目标，改查人员安置、后果、责任、关系、公开标签和媒介或场景状态。
+- Recognize terminal closure; do not demand another objective; instead examine settlement, consequences, responsibility, relationships, public labels, and medium/location state.
 
-**禁止行为**
+**Forbidden behavior**
 
-- 要求必须制造下一轮任务
-- 把终局停止循环判为发动机失效
-- 忽略安置和承诺等后果
+- Require another mission.
+- Call stopping the loop an engine failure.
+- Ignore settlement and promises as consequences.
 
-**通过标准**
+**Pass criteria**
 
-- 实际触发 story-engine
-- 识别终局收束
-- 不要求下一轮目标
-- 检查至少三类终局残留
+- Story Engine is triggered.
+- Terminal closure is identified.
+- No new objective is required.
+- At least three terminal residue categories are checked.
 
 ## SE-T007 — should-not-trigger
 
-**输入**
+**Input**
 
-> 帮我把这段小说正文润色得更有文采，句子更漂亮一点。
+> Please polish this prose so the sentences are more elegant and literary.
 
-**预期触发**
+**Expected trigger**
 
 - expected_trigger: `false`
 - expected_rules: `none`
 
-**预期行为**
+**Expected behavior**
 
-- 不以 story-engine 为主触发；应说明这是文风与正文任务，剧情发动机最多只能辅助检查结构。
+- Do not use Story Engine as the primary tool; identify the request as prose/style work. Story Engine may only assist with structure if requested.
 
-**禁止行为**
+**Forbidden behavior**
 
-- 启动八张规则卡完整诊断
-- 把润色请求改写成阶段发动机任务
-- 声称文风专项已安装
+- Run all eight rule cards.
+- Rewrite the request into a stage-engine task.
+- Claim a prose-specialist skill is installed when it is not known.
 
-**通过标准**
+**Pass criteria**
 
-- 实际不主触发 story-engine
-- 未调用具体规则
-- 指出这是文风或正文任务
+- Story Engine is not the primary trigger.
+- No specific Story Engine rule is used as the main workflow.
+- The request is correctly identified as prose/style work.
 
 ## SE-T008 — should-not-trigger
 
-**输入**
+**Input**
 
-> 帮我做一个主角从自卑到自洽的完整人物弧光，包括内在缺陷、关系修复和情感转折。
+> Design a complete character arc in which the protagonist moves from insecurity to self-acceptance, including inner flaw, relationship repair, and emotional turning points.
 
-**预期触发**
+**Expected trigger**
 
 - expected_trigger: `false`
 - expected_rules: `none`
 
-**预期行为**
+**Expected behavior**
 
-- 不以 story-engine 为主触发；应说明该请求主要属于完整人物弧光设计，story-engine 只能辅助检查关系残留和选择成本。
+- Do not use Story Engine as the primary workflow; identify the request as full character-arc design. Story Engine can only assist with structural consequences and choice costs.
 
-**禁止行为**
+**Forbidden behavior**
 
-- 用剧情发动机替代完整人物弧光设计
-- 把未提供的人物经历写成已确定事实
-- 为了触发剧情发动机而改写用户请求
+- Replace full character-arc design with plot-engine diagnosis.
+- Present invented backstory as confirmed fact.
+- Rewrite the user's request merely to force a Story Engine trigger.
 
-**通过标准**
+**Pass criteria**
 
-- 实际不主触发 story-engine
-- 未调用具体规则作为主流程
-- 说明 story-engine 最多只能做结构辅助
+- Story Engine is not the primary trigger.
+- No specific Story Engine rule is used as the main workflow.
+- Story Engine's role is described as structural assistance only.
 
 ## SE-T009 — edge
 
-**输入**
+**Input**
 
-> 我想让主角换职业进入新地图，这是不是一定会循环重启？
+> I want the protagonist to change professions and enter a new region. Does that automatically mean the story restarts?
 
-**预期触发**
+**Expected trigger**
 
 - expected_trigger: `true`
 - expected_rules: `SE-F-001`
 
-**预期行为**
+**Expected behavior**
 
-- 触发边界诊断，说明换职业或新地图不自动等于循环重启，需要检查上一阶段残留是否继承。
+- Trigger boundary diagnosis; explain that a new profession or map does not automatically equal restart; inspect inherited residue from the previous stage.
 
-**禁止行为**
+**Forbidden behavior**
 
-- 自动判定循环重启
-- 要求不能换职业或新地图
-- 忽略身份、权限、资源、责任、关系、认知、公开标签、媒介或场景状态
+- Automatically diagnose restart.
+- Say the protagonist must not change profession or region.
+- Ignore identity, access, resources, responsibility, relationships, knowledge, public labels, and medium/location state.
 
-**通过标准**
+**Pass criteria**
 
-- 实际触发 story-engine
-- 实际规则包含 SE-F-001
-- 明确不自动判重启
-- 要求检查八类状态残留
+- Story Engine is triggered.
+- `SE-F-001` is used.
+- The answer explicitly rejects automatic restart judgment.
+- The eight residue categories are checked or requested.
