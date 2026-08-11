@@ -8,6 +8,50 @@ The project is designed to be usable as a standalone writing framework or as a c
 
 > Public status: **0.1.1 — English documentation maintenance release.** The repository does not claim external adoption or model-evaluation pass rates that cannot be reproduced.
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
+## What Story Engine helps with
+
+Story Engine is for diagnosing structural plot problems in long-form fiction.
+
+It is especially useful when you ask questions like:
+
+- Why does this arc feel like a restart?
+- Why do repeated mission loops become formulaic?
+- Why do two narrative lines fail to affect each other?
+- Why does a premise sound interesting but still fail to sustain a long story?
+
+## Quick example
+
+### Input
+
+**Arc 1**
+- The protagonist saves a witness.
+- The protagonist now owes an organization a favor.
+- An opponent remembers the protagonist.
+
+**Arc 2**
+- The protagonist goes to another city because of a new commission.
+- The witness, the favor, and the opponent's pursuit do not affect the new investigation.
+
+### Story Engine diagnosis
+
+Triggered rules:
+- `SE-RC-001`
+- `SE-F-001`
+
+Findings:
+- Arc 2 has weak inheritance from Arc 1.
+- If Arc 1 is deleted, Arc 2 survives almost unchanged.
+- The witness, owed favor, and opponent pursuit are residues that should carry forward.
+
+Possible repair directions:
+- Make the new commission come from the witness.
+- Make access to the new case depend on repaying the organization's favor.
+- Let the remembered opponent create pressure in the new city.
+
+**Story Engine does not only ask whether an arc is interesting. It asks whether one stage actually creates the next stage.**
+
 ## Why this is more than a prompt
 
 Story Engine includes:
