@@ -6,7 +6,7 @@ It focuses on the mechanics that keep a story moving: **activation, a settleable
 
 The project is designed to be usable as a standalone writing framework or as a component inside an AI/agent workflow.
 
-> Public status: **0.1.0 — initial public release.** The repository does not claim external adoption or model-evaluation pass rates that cannot be reproduced.
+> Public status: **0.1.1 — English documentation maintenance release.** The repository does not claim external adoption or model-evaluation pass rates that cannot be reproduced.
 
 ## Why this is more than a prompt
 
