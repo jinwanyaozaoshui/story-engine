@@ -92,4 +92,4 @@ Eight residue categories: identity, permission/access, resources, responsibility
 
 ## Version
 
-Public release: `0.1.0`.
+Public release: `0.1.1`.
