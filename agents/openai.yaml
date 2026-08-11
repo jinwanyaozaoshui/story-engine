@@ -1,0 +1,5 @@
+interface:
+  skill_name: "story-engine"
+  display_name: "Story Engine / 剧情发动机"
+  short_description: "Diagnose and co-design sustainable plot stages, continuity, feedback, persistent consequences, and narrative-engine risks."
+  default_prompt: "Use the Story Engine skill on the fiction material I provide. Preserve confirmed content, mark suggestions and assumptions, identify unverifiable items, and check plot-engine viability, continuity, repetition, and multi-engine balance where the evidence is sufficient."

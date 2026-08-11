@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Story Engine Structured Output",
+  "type": "object",
+  "properties": {
+    "request_mode": {
+      "type": "string",
+      "enum": [
+        "quick-diagnosis",
+        "idea-completion",
+        "stage-co-creation",
+        "continuous-stage-review",
+        "cross-volume-continuity",
+        "risk-review"
+      ]
+    },
+    "confirmed_content": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "immutable_items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rules": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "SE-RC-001",
+          "SE-RC-002",
+          "SE-RC-003",
+          "SE-RC-004",
+          "SE-RC-005",
+          "SE-F-001",
+          "SE-F-002",
+          "SE-F-003"
+        ]
+      }
+    },
+    "conclusion": {
+      "type": "string",
+      "enum": [
+        "valid",
+        "mostly-valid-with-gaps",
+        "risk-only",
+        "unverifiable"
+      ]
+    },
+    "stage_plan": {
+      "type": "object",
+      "properties": {
+        "activation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "goal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "inaction_cost": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "choices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "action_feedback": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "gains_costs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "permanent_residue": {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "responsibilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "relationships": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "knowledge": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "public_labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "medium_or_scene_state": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "next_stage_pull": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "rule",
+          "level",
+          "note"
+        ],
+        "properties": {
+          "rule": {
+            "type": "string",
+            "enum": [
+              "SE-F-001",
+              "SE-F-002",
+              "SE-F-003"
+            ]
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "unverifiable"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "unverifiable_items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "suggestions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "request_mode",
+    "rules",
+    "conclusion"
+  ],
+  "additionalProperties": false
+}
