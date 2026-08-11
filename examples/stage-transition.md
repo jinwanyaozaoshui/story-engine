@@ -2,18 +2,18 @@
 
 ## Input
 
-> 阶段一：主角救下证人，因此欠某组织人情，也被对手记住。阶段二：主角去外城调查新事件，由陌生人发来委托；旧证人、人情和对手追踪都没有影响阶段二。
+> Stage 1: the protagonist saves a witness, owes an organization a favor, and is remembered by an opponent. Stage 2: the protagonist travels to another city to investigate a new incident after receiving a commission from a stranger; the witness, the favor, and the opponent's pursuit have no effect on Stage 2.
 
 ## Diagnosis
 
 Rules: `SE-RC-001`, `SE-F-001`.
 
-**Delete-previous-stage test:** 删除阶段一后，阶段二仍可以几乎原样开始，因此承接偏弱。
+**Delete-previous-stage test:** if Stage 1 is removed, Stage 2 can still begin almost unchanged. Continuity is therefore weak.
 
-这不代表“换城市”本身有问题，也不代表作品失败；风险来自阶段一留下的责任、关系和敌意没有改变阶段二的入口、限制或选择。
+This does not mean that changing cities is inherently wrong or that the work has failed. The risk comes from Stage 1's responsibility, relationships, and hostility not changing Stage 2's entry conditions, constraints, or choices.
 
 ## Repair candidates
 
-- `[建议]` 让外城委托来自上一阶段欠下的人情。
-- `[建议]` 让对手追踪迫使主角改变调查路径。
-- `[建议]` 让证人的信息成为进入新事件的必要入口，但不要直接替代阶段二自己的可结算目标。
+- `[SUGGESTION]` Let the new commission come from the favor owed in Stage 1.
+- `[SUGGESTION]` Let the opponent's pursuit force a different investigation route.
+- `[SUGGESTION]` Make information from the saved witness necessary to enter the new incident, without replacing Stage 2's own settleable goal.

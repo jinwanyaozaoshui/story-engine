@@ -1,255 +1,206 @@
-# Story Engine 八张规则卡
+# Story Engine Rule Cards
 
-本文件定义 Story Engine 的详细规则层。用户输出不应机械展示全部字段；只有在诊断或共创需要时按需读取、裁剪使用。
+This file defines the detailed rule layer. User-facing output should not mechanically expose every field; load and trim only what the current diagnosis or co-design task requires.
 
-统一使用口径：
+General interpretation:
 
-> 这些规则用于结构诊断与共创。正向规则可指出输入中的结构缺口；风险规则只提示风险，不用于判定整部作品的质量。
-
----
-
-## SE-RC-001 通用剧情发动机循环
-
-| 字段 | 内容 |
-|---|---|
-| 规则编号 | SE-RC-001 |
-| 规则名称 | 通用剧情发动机循环 |
-| 规则类型 | 正向规则；跨题材基础框架 |
-| 一句话定义 | 一个可持续剧情阶段，应由启动条件触发当前可结算目标，在限制中迫使主角作出有代价选择，并让结果留下永久状态变化，从而牵引下一阶段。 |
-| 适用阶段 | 创意诊断、卷纲、阶段链、相邻阶段、跨卷承接、能力或职业变化后的续写。 |
-| 适用题材 | 所有需要连续推进的长篇类型；低冲突题材可把残留更多落在关系、认知和公开标签上。 |
-| 所需输入 | 用户已确定内容、不可修改项、请求范围、主角持续欲望、当前阶段目标、启动事件、不行动代价、限制、可选方案、失败成本、人物关系、资源与身份、长期线索、已确认能力规则。 |
-| 输入不足时如何处理 | 标记“无法验证”或“需要补充”，只提出补充问题或候选空位，不自行补写后宣布规则成立。 |
-| 诊断信号 | 只有长期愿望没有阶段目标；阶段目标不可结算；成功只有奖励；下一阶段靠新通知启动；旧身份、旧责任、旧关系或旧媒介被清零。 |
-| 操作步骤 | 检查启动条件、当前可结算目标、不行动代价、限制、有代价选择、行动、反馈、收益、代价、永久状态变化、下一阶段牵引。 |
-| 共创功能 | 把松散创意转为阶段方案包；为每阶段补目标、限制、两种选择、收益、代价、残留和下一阶段入口。 |
-| 删除测试 | 删除上一阶段后，下一阶段的入口、目标、限制、代价、人物关系和媒介是否仍能原样成立。能原样成立则承接偏弱。 |
-| 反事实测试 | 删除长期线索、让阶段只部分成功、让任务发布者停止帮助、让旧办法失效，检查发动机是否仍能由现实责任和人物关系启动。 |
-| 预期结果 | 每个阶段都有可结算目标，成功或半成功都留下身份、权限、资源、责任、关系、认知、公开标签、媒介或场景状态中的至少一种残留。 |
-| 可诊断范围 | 可诊断单阶段是否缺目标、限制、选择、反馈和残留；可诊断相邻阶段是否承接。 |
-| 可共创范围 | 可生成阶段方案包、承接补丁、半成功反馈、旧状态继承表和下一阶段入口。 |
-| 是否可以硬判 | 只能对输入材料中的结构缺口作硬提示，不能判定作品整体质量。 |
-| 适用边界 | 换地图、换任务、换职业、换规则不等于重启；终局阶段可以停止制造下一轮目标；单元剧允许部分状态重置，但必须保留最低积累；不要求每阶段机械填满全部字段。 |
-| 常见误判 | 把金手指、设定或任务系统当发动机；把长期愿望当阶段目标；把能力变化当剧情清零；把一切换场景都判为重启。 |
-| 失效征兆 | 阶段完成后停滞；下一阶段像独立任务；主角总用旧办法；只有奖励没有责任、暴露、关系或认知变化。 |
-| 修补动作 | 让成功带来新责任、债务、审查、公开标签或关系变化；让旧办法被环境学习、封锁或反利用；让下一阶段入口依赖上一阶段残留。 |
-| 超出本 Skill 范围的内容 | 人物弧光、节奏控制、主题表达、文风、章节细纲、世界观设定细化。 |
-| 输出格式 | 诊断表；阶段方案包；相邻阶段承接表；残留清单；修补建议。 |
-
-八类状态残留：身份、权限、资源、责任、关系、认知、公开标签、媒介或场景状态。
+> These rules support structural diagnosis and co-design. Positive rules may identify missing structural functions in the supplied material. Risk rules identify evidence-backed risks only; they do not determine the overall quality of a work.
 
 ---
 
-## SE-RC-002 资源稀缺发动机
+## SE-RC-001 — General Plot-Engine Loop
 
-| 字段 | 内容 |
+| Field | Content |
 |---|---|
-| 规则编号 | SE-RC-002 |
-| 规则名称 | 资源稀缺发动机 |
-| 规则类型 | 正向规则；专项发动机 |
-| 一句话定义 | 当稀缺资源与成长、生存、身份、阵营、师承或治理责任绑定时，主角必须争取、交换或使用资源，而资源结果会制造下一层压力。 |
-| 适用阶段 | 成长期、学府期、组织竞争期、资源交易期、晋级期、后期资源转型期。 |
-| 适用题材 | 修炼、学院、组织晋升、商业竞争、战力成长、资源分配、领袖治理。 |
-| 所需输入 | 稀缺资源、稀缺原因、获取限制、竞争者、可选获取路径、使用选择、失败成本、资源结果如何改变身份或责任。 |
-| 输入不足时如何处理 | 若只给资源名或升级数值，标记为“资源功能不足”，要求补资源限制、代价和回流。 |
-| 诊断信号 | 资源只剩数字；兑换不带审查、债务或竞争；主角能轻易绕过资源限制；所得不改变外部关系。 |
-| 操作步骤 | 资源需求 -> 获取限制 -> 竞争或交换 -> 使用选择 -> 收益与代价 -> 新资源压力。 |
-| 共创功能 | 设计资源入口、竞争规则、交易条件、使用代价、所得后的敌意、责任或资格变化。 |
-| 删除测试 | 删除资源线后，阶段目标、行动路径、身份变化或下一阶段压力是否还能成立。若仍成立，资源可能只是奖励说明。 |
-| 反事实测试 | 让资源获取只部分成功、让资源带监管、让旧资源过期、让资源使用暴露身份，检查发动机是否增强。 |
-| 预期结果 | 资源不是终点，而是资格、战力、债务、公开标签、敌意或治理责任的入口。 |
-| 可诊断范围 | 可诊断资源是否提出目标、限制选择、改变行动、结算和牵引下一阶段。 |
-| 可共创范围 | 可共创资源竞争、交易、消耗、债务、监管、阵营回流和后期转型方案。 |
-| 是否可以硬判 | 不可硬判作品失败；可对输入样稿中“资源只剩数值”作风险提示。 |
-| 适用边界 | 资源稀缺可能后期转为战力条件、组织或治理条件、身份责任或终局筹码；资源不再是主目标不等于发动机失败；需看功能是否迁移，而不是资源词频。 |
-| 常见误判 | 把资源名变化当结构变化；把资源词减少判失败；把后期主角地位提升后的发动机转型判失衡。 |
-| 失效征兆 | 资源获取无代价；资源只涨数值；资源可随时兑换；资源结果不改变关系、身份或后续问题。 |
-| 修补动作 | 把资源绑定资格、期限、公开风险、债务、阵营站队或治理责任；让资源使用带不可逆选择。 |
-| 超出本 Skill 范围的内容 | 具体修炼体系、战力平衡、经济系统、组织政治细节。 |
-| 输出格式 | 资源循环表；资源功能七项表；资源转型判断；风险和修补建议。 |
+| Rule ID | `SE-RC-001` |
+| Rule name | General plot-engine loop |
+| Type | Positive rule; cross-genre baseline |
+| One-sentence definition | A sustainable stage is activated by a current settleable goal, forces costly choices under constraints, produces feedback, and leaves persistent state changes that pull the next stage into motion. |
+| Best used for | Idea diagnosis, volume outlines, stage chains, adjacent stages, cross-volume continuity, continuation after a power/job change. |
+| Required evidence | Confirmed/immutable content, request scope, long-term desire, current goal, activation, inaction cost, constraints, options, failure cost, relationships, resources/identity, long-term clues, confirmed power rules. |
+| If input is insufficient | Mark `[UNVERIFIABLE]` or request only the minimum missing field. Do not invent canon and then claim the rule passes. |
+| Diagnostic signals | Only a long-term desire but no stage goal; un-settleable objective; success produces reward only; next stage starts from a fresh notification; identity/duty/relationships are reset. |
+| Operation | Activation → settleable goal → inaction cost → constraints → costly choice → action → feedback → gains/costs → persistent residue → next-stage pull. |
+| Co-design function | Turn loose ideas into stage packages with goal, constraints, alternatives, consequences, residue, and next-stage entry. |
+| Deletion test | Remove the previous stage. If the next stage's entry, goal, constraints, costs, relationships, and medium still work almost unchanged, continuity is weak. |
+| Counterfactual tests | Remove long-term clue; allow only partial success; remove task-giver help; invalidate the old solution; check whether responsibility/relationships can still activate events. |
+| Expected result | Each stage has a settleable objective and leaves at least one meaningful residue category changed. |
+| Hard-judgment boundary | May directly flag missing structure in supplied material; may not declare the entire work bad. |
+| Important boundary | New maps, jobs, tasks, or rules are not automatic restart; terminal stages may stop opening goals; episodic fiction may reset some state but should preserve minimum accumulation. |
+| Common false positives | Treating a power, setting, or task system as the engine itself; treating long-term desire as a stage goal; treating any scene change as restart. |
+| Failure signs | Stage completion causes dead air; next stage feels like an unrelated assignment; protagonist repeats the same solution; reward appears without duty, exposure, relationship, or knowledge change. |
+| Repair moves | Make success create debt, responsibility, oversight, a public label, or relationship change; let the environment learn the old solution; make the next entry depend on residue. |
+| Out of scope | Full character arcs, prose style, chapter rhythm, detailed worldbuilding, theme design. |
+
+Eight residue categories: **identity, permission/access, resources, responsibility, relationships, knowledge, public label, medium/location state**.
 
 ---
 
-## SE-RC-003 反目标发动机
+## SE-RC-002 — Resource-Scarcity Engine
 
-| 字段 | 内容 |
+| Field | Content |
 |---|---|
-| 规则编号 | SE-RC-003 |
-| 规则名称 | 反目标发动机 |
-| 规则类型 | 正向规则；专项发动机 |
-| 一句话定义 | 主角主观追求失败、低调、亏损或避开成功，但外部评价系统、配角理解和市场反馈按自洽逻辑反向兑现，使结果偏离主角目标并制造下一项目压力。 |
-| 适用阶段 | 项目立项、执行、反馈、复盘、组织规模扩张、外部评价升级阶段。 |
-| 适用题材 | 经营、职场、项目制喜剧、文娱产业、组织误读、商业反差。 |
-| 所需输入 | 主角真实目标、公开行动、外部评价规则、配角解释路径、项目环境、结果偏差、奖惩反馈、下一项目策略变化。 |
-| 输入不足时如何处理 | 若只有“主角想失败但成功”，要求补外部评价为何自洽、配角为何不降智、成功如何带来新代价。 |
-| 诊断信号 | 外部成功没有独立逻辑；配角只为误解而误解；每轮只换项目名；读者能提前预测逆转。 |
-| 操作步骤 | 主角主观目标 -> 外部评价规则 -> 主角反向方案 -> 配角理性解释 -> 实际结果偏差 -> 奖惩反馈 -> 下一项目策略变化。 |
-| 共创功能 | 生成项目环境、误读机制、配角学习、市场反馈、半成功或失败后的新压力。 |
-| 删除测试 | 删除外部评价系统或配角解释后，逆转是否仍成立。若仍成立，可能是作者强行反转。 |
-| 反事实测试 | 让旧误解失效、让市场不买账、让配角学会主角旧套路、让项目只部分成功，检查下一轮是否有新变量。 |
-| 预期结果 | 每轮反目标逆转都改变资金、组织能力、品牌信任、公众期待或主角策略。 |
-| 可诊断范围 | 可诊断反目标是否有自洽外部评价、配角学习和结果残留。 |
-| 可共创范围 | 可共创反目标项目、合理误读、社会反馈、半失败、组织学习和下一轮策略。 |
-| 是否可以硬判 | 不可硬判；可提示“误解无自洽逻辑”或“公式化风险”。 |
-| 适用边界 | 行业环境必须变化；配角应具有学习能力；外部评价系统必须自洽；不能无限依赖同一种误解；项目、行业、组织规模和社会反馈必须产生变量变化。 |
-| 常见误判 | 把所有反转都当反目标发动机；把配角降智当喜剧；把流程相似直接判失败。 |
-| 失效征兆 | 配角长期同一种误解；外部市场没有自身逻辑；主角明知旧套路会成功仍重复使用；结算数字替代人物选择。 |
-| 修补动作 | 换行业评价标准；让配角记住旧经验；让主角旧方案触发新副作用；让半失败改变组织反馈。 |
-| 超出本 Skill 范围的内容 | 商业细节、行业研究、笑点节奏、组织群像。 |
-| 输出格式 | 反目标循环表；外部评价自洽表；误读链；公式感风险表；修补建议。 |
+| Rule ID | `SE-RC-002` |
+| Rule name | Resource-scarcity engine |
+| Type | Positive specialist rule |
+| One-sentence definition | When a scarce resource is tied to growth, survival, identity, faction position, apprenticeship, or governance, the protagonist must compete, trade, or spend it, and the outcome creates the next pressure. |
+| Best used for | Growth phases, academy/organization competition, acquisition/trade, advancement, later-stage resource transition. |
+| Required evidence | Scarce resource, why it is scarce, acquisition constraints, competitors, alternative acquisition routes, use choice, failure cost, downstream identity/responsibility effect. |
+| If input is insufficient | If only a resource name or number is supplied, flag weak resource function and request limits, costs, and downstream return flow. |
+| Diagnostic signals | Resource is only a number; exchange has no oversight/debt/competition; constraints are easy to bypass; gains do not alter external relationships. |
+| Operation | Resource need → acquisition constraint → competition/exchange → use choice → gain/cost → new resource pressure. |
+| Co-design function | Design entry points, competition rules, transaction conditions, use costs, hostility, qualification changes, debt, or responsibility. |
+| Deletion test | Remove the resource line. If goal, action path, identity change, and future pressure remain intact, the resource may be reward decoration. |
+| Counterfactual tests | Partial acquisition; oversight attached to use; old resource becomes obsolete; use exposes identity. |
+| Expected result | Resource becomes a gateway to qualification, power, debt, hostility, public label, responsibility, or governance—not an endpoint number. |
+| Hard-judgment boundary | Do not declare a work failed because resource emphasis changes; judge function, not word frequency. |
+| Important boundary | A resource may later transform from objective to prerequisite, responsibility, organizational condition, or terminal stake. Transition is not failure. |
+| Failure signs | No acquisition cost; only numerical growth; always-on exchange; no relationship/identity effect. |
+| Repair moves | Bind resources to qualification, deadlines, public risk, debt, faction commitment, oversight, or irreversible use choices. |
+| Out of scope | Exact economic balance, cultivation system design, combat balance, organization-politics detail. |
 
 ---
 
-## SE-RC-004 现实目标与隐藏任务双引擎
+## SE-RC-003 — Anti-Goal Engine
 
-| 字段 | 内容 |
+| Field | Content |
 |---|---|
-| 规则编号 | SE-RC-004 |
-| 规则名称 | 现实目标与隐藏任务双引擎 |
-| 规则类型 | 正向规则；专项发动机 |
-| 一句话定义 | 现实端提出可结算目标和社会限制，隐藏端提供异常问题、真相和高风险行动，隐藏结果必须回流为现实目标、限制、责任或场景状态，双线才能持续供能。 |
-| 适用阶段 | 现实职业或经营启动、隐藏任务展开、奖励回流、阶段性失衡、修复、主动转型、终局回流。 |
-| 适用题材 | 现实工作与异常并行、经营和隐藏副本、都市隐秘超凡、职业入口型长篇。 |
-| 所需输入 | 现实端目标、现实载体、现实限制、隐藏入口、隐藏风险、隐藏收益与代价、现实回流类型、两端下一阶段牵引。 |
-| 输入不足时如何处理 | 若只给隐藏任务，要求补现实端可结算目标；若只给现实职业，要求补隐藏端如何改变现实条件。 |
-| 诊断信号 | 现实端只剩人物、资产或道具；隐藏奖励不回流；现实职业只作入口；终局前仍按经营增长硬评。 |
-| 操作步骤 | 检查现实目标 -> 隐藏入口 -> 隐藏行动限制 -> 隐藏结算 -> 现实回流 -> 新责任 -> 下一阶段主辅分工。 |
-| 共创功能 | 生成现实载体、隐藏事件、回流方式、岗位、合同、家庭、组织压力、修复或转型方案。 |
-| 删除测试 | 删除现实端后，隐藏线是否只剩冒险；删除隐藏端后，现实线是否失去高压来源。 |
-| 反事实测试 | 隐藏奖励只给道具、现实人员不承担岗位、终局不再制造经营目标，检查是否应判为失衡、修复或转型。 |
-| 预期结果 | 两条线各有功能，隐藏结果进入营业、岗位、安全、关系、竞争、场景运行、合同、家庭或现实责任。 |
-| 可诊断范围 | 可诊断现实端和隐藏端是否分别承担目标、限制、路径、反馈、残留和牵引。 |
-| 可共创范围 | 可共创双线分工、现实回流、子压力、长期线索控制、阶段性修复和终局回流。 |
-| 是否可以硬判 | 可对输入样稿中的“现实端完全无功能”作强风险判定；不能据此宣称整部作品每个阶段都应保持均衡。 |
-| 适用边界 | 人物、资产和道具仍存在不等于供能；隐藏奖励转化为现实目标、限制或责任才算回流；终局不要求继续生成经营循环，应检查人员安置、现实风险、关系和主题落点。 |
-| 常见误判 | 把人物露面当现实线；把旁观反应当经营供能；把阶段性失衡判长期失败；把终局收束判发动机失效。 |
-| 失效征兆 | 现实端只负责开场；隐藏任务独立成副本；奖励清单不产生岗位、合同、安全或维护压力；长期线直接发布任务。 |
-| 修补动作 | 给现实端加收入、岗位、合同、家庭支出、组织评价、场景维护或安全责任；让隐藏结果回到现实流程。 |
-| 超出本 Skill 范围的内容 | 氛围、具体副本设计、职业制度细节、终局主题表达。 |
-| 输出格式 | 双引擎功能表；现实/隐藏删除测试；回流类型表；阶段性失衡、修复或转型判断。 |
-
-现实端可承担：可结算目标、身份和权限、收入、岗位、家庭、声誉、组织压力、隐藏结果现实结算、新责任、下一阶段行动需求。
-
-隐藏端可承担：异常问题、真相、高风险行动、超凡奖励与代价、长线敌人、世界秘密。
+| Rule ID | `SE-RC-003` |
+| Rule name | Anti-goal engine |
+| Type | Positive specialist rule |
+| One-sentence definition | The protagonist intentionally seeks failure, obscurity, loss, or non-success, while an independent external evaluation system and rational supporting-character interpretations cause outcomes to diverge from that intention and generate the next pressure. |
+| Best used for | Project-based comedy, business/office/entertainment arcs, organization growth through misunderstanding or reversed incentives. |
+| Required evidence | Protagonist's true goal, public action, external evaluation rules, supporting-character interpretation, environment, result divergence, reward/punishment feedback, next strategy change. |
+| If input is insufficient | “Wants to fail but succeeds” is not enough. Require coherent external evaluation, non-stupid supporting characters, and a success cost. |
+| Diagnostic signals | Success has no independent logic; misunderstanding exists only because the author needs it; each cycle changes only project names; reversal is fully predictable. |
+| Operation | Subjective anti-goal → external evaluation logic → reverse strategy → rational interpretation → divergent result → reward/punishment → next strategy change. |
+| Co-design function | Build changing evaluation standards, rational misread mechanisms, supporting-character learning, partial failure, and social/organizational feedback. |
+| Deletion test | Remove the external evaluation system or interpretation chain. If the reversal still happens unchanged, it may be author-forced. |
+| Counterfactual tests | Old misunderstanding stops working; market rejects the project; supporting characters learn the old trick; only partial success occurs. |
+| Expected result | Each reversal changes money, organization capability, reputation, public expectation, or protagonist strategy. |
+| Hard-judgment boundary | Flag incoherent evaluation or repetition risk; do not declare the entire work failed. |
+| Important boundary | Industry/environment variables must evolve; supporting characters should learn; the evaluation system must remain internally coherent; one misunderstanding cannot carry infinite cycles. |
+| Failure signs | Same misunderstanding forever; market has no independent logic; protagonist repeats a known-success “failure” plan; settlement numbers replace decisions. |
+| Repair moves | Change evaluation criteria; let characters remember prior cycles; make the old trick create a new side effect; use partial failure to alter organizational response. |
+| Out of scope | Detailed industry research, comedy timing, business realism, ensemble characterization. |
 
 ---
 
-## SE-RC-005 规则压力发动机
+## SE-RC-004 — Reality-Goal + Hidden-Task Dual Engine
 
-| 字段 | 内容 |
+| Field | Content |
 |---|---|
-| 规则编号 | SE-RC-005 |
-| 规则名称 | 规则压力发动机 |
-| 规则类型 | 正向规则；专项发动机 |
-| 一句话定义 | 主角进入由明确规则限制的环境，必须理解规则、发现限制和漏洞、作出代价选择并完成博弈，结算后规则认知或人物关系发生变化。 |
-| 适用阶段 | 单局规则、连续规则局、规则复杂化阶段、终局规则战。 |
-| 适用题材 | 死亡游戏、规则怪谈、封闭场景、悬疑博弈、智斗、考试或试炼型结构。 |
-| 所需输入 | 规则环境、规则文本、目标、失败代价、限制、漏洞、人物组合、可选方案、结算、信息和关系残留。 |
-| 输入不足时如何处理 | 若只有规则名，要求补限制、选择、失败代价和人物行动；若规则过密，要求补人物情绪和后果回流。 |
-| 诊断信号 | 规则只解释世界不限制行动；规则越来越复杂但人物选择不变；人物只剩惊讶、牺牲或帮助解题。 |
-| 操作步骤 | 进入规则环境 -> 理解规则 -> 发现限制和漏洞 -> 作出代价选择 -> 博弈 -> 结算 -> 规则认知或人物关系变化。 |
-| 共创功能 | 生成规则局、限制、漏洞、代价选择、人物协作或背叛、信息残留和后续规则认知。 |
-| 删除测试 | 删除规则线后，人物压力是否失去触发机制；删除人物线后，规则局是否退化为机械谜题。 |
-| 反事实测试 | 提高规则复杂度、删除某个队友、让人物只部分成功、让规则漏洞反噬旧办法，检查人物是否仍改变结果。 |
-| 预期结果 | 规则改变选择，人物选择改变结果，结算留下信息、伤害、信任、承诺、恐惧或敌意。 |
-| 可诊断范围 | 可诊断规则是否限制选择、是否可结算、人物是否仍承担行动和情绪功能。 |
-| 可共创范围 | 可共创规则环境、漏洞、代价选择、人物信任链、规则后果回流。 |
-| 是否可以硬判 | 不可硬判作品失败；可提示规则复杂化副作用和人物线弱化风险。 |
-| 适用边界 | 规则越复杂，越要确保人物选择仍改变结果；连续规则说明可能压低人物情绪；情绪暂时被压低不等于多发动机失衡；需检查后续人物后果回流。 |
-| 常见误判 | 把规则复杂化判为多发动机失衡；把固定规则局承诺判为公式化；把规则名变化当结构变化。 |
-| 失效征兆 | 只增加规则层数；角色只听解释；失败代价不继承；局后没有信任、伤害、信息或责任残留。 |
-| 修补动作 | 让人物选择改变规则结果；把规则结算回流为伤害、信任、承诺、背叛或心理后果；降低解释密度并增加行动反馈。 |
-| 超出本 Skill 范围的内容 | 谜题设计、智斗细节、悬疑节奏、群像心理。 |
-| 输出格式 | 规则局功能表；限制和漏洞表；人物关系回流表；复杂化副作用判断。 |
+| Rule ID | `SE-RC-004` |
+| Rule name | Reality-goal + hidden-task dual engine |
+| Type | Positive specialist rule |
+| One-sentence definition | A reality-side objective and a hidden/anomalous objective operate in parallel and remain narratively necessary because results, costs, identity exposure, resources, or relationships flow between the two sides. |
+| Best used for | Secret identity, hidden world, dream/anomaly work, double life, supernatural investigation alongside ordinary obligations. |
+| Required evidence | Reality goal and inaction cost, hidden entry and risk, constraints on both sides, cross-side return flow, persistent consequences, deletion tests for each side. |
+| If input is insufficient | Two alternating settings are not enough. Ask what each side contributes and what changes on the other side after a result. |
+| Diagnostic signals | Hidden side is detached adventure/reward; reality side is only filler; one side can disappear for long stretches without changing the other; no cross-side constraints. |
+| Operation | Reality pressure ↔ hidden entry/risk → cross-side choice → result on one side → consequence on the other → accumulated identity/relationship/responsibility pressure. |
+| Co-design function | Design cross-side resources, exposure, debts, relationship suspicion, schedule conflict, and result feedback. |
+| Deletion test | Delete the reality side, then the hidden side. If either removal leaves the main progression nearly intact across multiple stages, that side may lack function. |
+| Counterfactual tests | Hidden reward creates a real-world cost; real-world duty blocks a hidden solution; a relationship discovers partial truth; one engine temporarily weakens but later changes a key decision. |
+| Expected result | Each engine provides at least several meaningful functions over time and materially changes the other side's choices or constraints. |
+| Hard-judgment boundary | Temporary asymmetry is allowed. Strong imbalance requires repeated low function across multiple stages plus deletion evidence. |
+| Important boundary | “Dual engine” means functional interdependence, not merely alternating scenes. A main/secondary hierarchy is acceptable. |
+| Failure signs | Hidden side yields loot only; reality side produces no goals or costs; cross-side events do not alter choices; one side can be deleted. |
+| Repair moves | Convert hidden gains into oversight/exposure/duty; let reality relationships change hidden access; create scheduling, identity, or resource conflict; force cross-side tradeoffs. |
+| Out of scope | Full secret-identity character arc, detailed supernatural system, romance development. |
 
 ---
 
-## SE-F-001 循环重启
+## SE-RC-005 — Rule-Pressure Engine
 
-| 字段 | 内容 |
+| Field | Content |
 |---|---|
-| 规则编号 | SE-F-001 |
-| 规则名称 | 循环重启 |
-| 规则类型 | 风险诊断规则 |
-| 一句话定义 | 当新阶段删除上一阶段后仍能原样成立，且旧身份、责任、关系、认知、资源、权限、公开标签或媒介状态被清零时，存在循环重启风险。 |
-| 适用阶段 | 相邻阶段、跨卷、换地图、换职业、换能力、单元剧边界。 |
-| 适用题材 | 长篇连载、项目制、规则局、副本制、职业变化、能力轮转。 |
-| 所需输入 | 上一阶段目标、结果、残留；下一阶段启动、目标、限制、旧人物、责任、资源、权限保留情况；能力或场景变化。 |
-| 输入不足时如何处理 | 单阶段材料只能预警，不能判定；要求用户补上一阶段结果和下一阶段入口。 |
-| 诊断信号 | 删除上一阶段后下一阶段仍成立；新阶段只靠陌生通知；旧人物和责任退场；只有等级和能力保留。 |
-| 操作步骤 | 记录上一阶段留下什么 -> 检查下一阶段是否依赖这些状态 -> 删除上一阶段测试 -> 检查是否只有能力或等级保留 -> 输出风险等级和修补建议。 |
-| 共创功能 | 生成旧状态继承、入口改写、旧人物回流、责任复核、半成功残留。 |
-| 删除测试 | 本卡核心测试：删除上一阶段后，下一阶段能否原样成立。 |
-| 反事实测试 | 让旧能力失效、任务发布者不派任务、旧场景关闭、上一阶段只部分成功，检查是否仍能由旧责任启动。 |
-| 预期结果 | 新阶段至少继承一种实质残留，最好让入口、代价或限制依赖上一阶段。 |
-| 可诊断范围 | 可诊断输入样稿中的承接风险；连续材料越完整，诊断越强。 |
-| 可共创范围 | 可共创承接补丁、残留清单、强承接入口、旧状态继承。 |
-| 是否可以硬判 | 不能作为通用硬性失败判定；只能在输入连续阶段满足删除测试时提高风险等级。 |
-| 适用边界 | 单元剧不自动失败；换地图、换职业、换任务不自动失败；有意重置可服务题材承诺。 |
-| 常见误判 | 把换场景等同重启；只要同一主角就认为承接；把能力失效当身份、责任和关系失效。 |
-| 失效征兆 | 原人物退场、旧责任不再提、旧收益无债务、下一阶段由陌生通知启动。 |
-| 修补动作 | 让下一阶段入口来自旧残留；保留旧人物一次实际行动；让旧收益附带审查、债务或复核；让旧关系改变选择成本。 |
-| 超出本 Skill 范围的内容 | 卷纲承接、人物关系弧线、世界观阶段规划。 |
-| 输出格式 | 承接判定表；删除测试；残留继承表；风险等级；修补建议。 |
+| Rule ID | `SE-RC-005` |
+| Rule name | Rule-pressure engine |
+| Type | Positive specialist rule |
+| One-sentence definition | Explicit rules, constraints, loopholes, and violation costs create pressure only when characters must interpret them, choose under them, exploit them, or pay for breaking them, with consequences surviving after the local rule set ends. |
+| Best used for | Rule mysteries, trials, closed games, survival constraints, institutions, contracts, supernatural rule spaces. |
+| Required evidence | Rule text/constraints, uncertainty or exploit space, violation cost, character options, information flow, relationship change, post-event residue. |
+| If input is insufficient | A list of rules is not yet a plot engine. Require a current goal, choices, and consequences. |
+| Diagnostic signals | Rules only increase puzzle complexity; characters become carriers of exposition; every solution is a technical loophole; leaving the space resets everything. |
+| Operation | Rule pressure → interpretation → costly choice/exploit → action → rule feedback → gain/cost → knowledge/relationship/public residue. |
+| Co-design function | Design rule dilemmas, conflicting interpretations, social consequences, limited loopholes, false certainty, and residue after exit. |
+| Deletion test | Remove the rule set. If character decisions and outcomes remain almost identical, rules may be decorative. |
+| Counterfactual tests | More complex rule set but fewer meaningful choices; loophole works once then is countered; breaking a rule saves someone but creates public/relationship cost. |
+| Expected result | Rules change decisions, relationships, knowledge, access, or public status—not just difficulty. |
+| Hard-judgment boundary | Complex rules are not automatically bad or imbalanced. Judge whether agency and consequence remain functional. |
+| Important boundary | Rules may simplify or transform later. A completed rule-engine can become knowledge, responsibility, or terminal stake. |
+| Failure signs | Rule dump replaces choice; loophole solves everything; supporting characters exist only to die/explain; no post-stage consequence. |
+| Repair moves | Force competing interpretations; attach social/relationship cost to optimal solutions; make prior rule knowledge change future access or trust. |
+| Out of scope | Exact puzzle design, legal interpretation, full mystery logic verification. |
 
 ---
 
-## SE-F-002 发动机公式化
+## SE-F-001 — Restart / Continuity Risk
 
-| 字段 | 内容 |
+| Field | Content |
 |---|---|
-| 规则编号 | SE-F-002 |
-| 规则名称 | 发动机公式化 |
-| 规则类型 | 风险诊断规则 |
-| 一句话定义 | 当连续三个或以上循环只替换表面素材，而启动、目标、限制、选择、行动路径、配角功能、反馈、收益代价和情绪效果长期不变时，存在公式化风险。 |
-| 适用阶段 | 连续项目、连续副本、连续规则局、卷内阶段链、跨卷能力或职业变化。 |
-| 适用题材 | 项目制、单元剧、副本制、规则游戏、经营任务、反目标喜剧、双引擎任务链。 |
-| 所需输入 | 至少三轮启动、目标、限制、选择、行动、配角功能、中途变化、反馈、收益代价、下一阶段启动、情绪效果。 |
-| 输入不足时如何处理 | 少于三轮只能提示潜在风险；不得判公式化成立。 |
-| 诊断信号 | 只换任务名、场景名、敌人名或规则名；主角同流程；配角固定工具；结果和代价同构；读者可预测过程。 |
-| 操作步骤 | 建三轮比较表 -> 标出相同变量 -> 标出真实变化变量 -> 检查旧办法是否失效 -> 区分题材循环、生产性变体和公式化风险。 |
-| 共创功能 | 生成变量变化方案、旧办法封锁、对手学习、环境反利用、人物拒绝、代价反噬。 |
-| 删除测试 | 删除某轮的具体外壳后，剩下流程是否仍与其他轮完全等价。 |
-| 反事实测试 | 让旧办法被封锁、配角拒绝工具化、半成功改变反馈、规则被反利用，检查循环是否恢复变化。 |
-| 预期结果 | 稳定题材承诺保留，但每轮在限制、选择、代价、人物关系、信息状态、现实反馈或主辅分工中至少变化一项。 |
-| 可诊断范围 | 可诊断连续阶段的同构风险和旧办法未失效问题。 |
-| 可共创范围 | 可共创限制变化、人物功能变化、反馈变化、代价变化和生产性变体。 |
-| 是否可以硬判 | 不可作为通用硬性失败判定；只有输入中连续多轮高度同构时提高风险等级。 |
-| 适用边界 | 固定题材承诺不等于公式化；生产性变体应优先保留；只有主要结构变量长期不变且旧办法没有被学习、封锁、拒绝、反噬或反利用时，才提高风险等级。 |
-| 常见误判 | 把固定任务、规则局或项目循环直接判公式化；把规则复杂化或阶段性失衡归入公式化。 |
-| 失效征兆 | 奖励清单化；配角长期工具化；旧办法一直有效；反馈只涨数值；情绪效果单一。 |
-| 修补动作 | 改变启动来源、限制类型、配角目标、失败成本、反馈方向；让上一轮成功制造新障碍。 |
-| 超出本 Skill 范围的内容 | 节奏设计、笑点设计、谜题设计、人物群像。 |
-| 输出格式 | 三轮比较表；题材循环、变体和公式化分类；风险等级；修补动作。 |
+| Rule ID | `SE-F-001` |
+| Rule name | Restart / continuity risk |
+| Type | Risk-diagnosis rule |
+| Definition | Risk rises when a new stage, volume, map, job, task, or power appears to discard inherited state so thoroughly that deleting the previous stage barely changes the next one. |
+| Evidence threshold | At least two adjacent stages or enough cross-volume material to compare entry, constraints, and residue. |
+| Primary test | Delete the previous stage and ask whether the next stage still begins, develops, and resolves almost the same way. |
+| Residue to inspect | Identity, permission/access, resources, responsibility, relationships, knowledge, public label, medium/location state. |
+| Low risk | The next stage clearly depends on inherited residue. |
+| Medium risk | Residue exists but changes only flavor, not entry/constraints/choices. |
+| High risk | Several residue categories reset and the next stage remains almost unchanged without the previous stage. |
+| Non-trigger boundaries | A map/job/power change alone is not restart; episodic fiction may reset some local state; deliberate engine transition is allowed. |
+| Repair moves | Make the next entry depend on debt, access, enemies, reputation, relationships, resource loss, knowledge, or medium state created previously. |
+| Hard-judgment boundary | Never convert this risk score into an overall quality verdict. |
 
 ---
 
-## SE-F-003 多发动机失衡
+## SE-F-002 — Formulaic Repetition Risk
 
-| 字段 | 内容 |
+| Field | Content |
 |---|---|
-| 规则编号 | SE-F-003 |
-| 规则名称 | 多发动机失衡 |
-| 规则类型 | 风险诊断与误判边界规则 |
-| 一句话定义 | 多条发动机并存时，若连续多个阶段中某条线长期不足两项功能，且删除后主要剧情仍基本成立，则存在多发动机失衡风险。 |
-| 适用阶段 | 双线或多线并行、职业与异常并行、资源与阵营并行、规则与人物关系并行、终局主次切换。 |
-| 适用题材 | 多线长篇、双引擎、规则游戏、资源成长、职业超凡、长期真相线并存结构。 |
-| 所需输入 | 各发动机名称、连续阶段、每条线七项功能、主发动机、弱化发动机、删除测试、后续修复或转型。 |
-| 输入不足时如何处理 | 单轮只能预警；缺连续阶段或缺每条线功能时不得判失衡成立。 |
-| 诊断信号 | 某条线只剩说明、奖励、背景、情绪反应或工具功能；删除后主剧情仍基本成立；长期线直接发布任务。 |
-| 操作步骤 | 分别检查每条线七项功能 -> 标出当前主线和弱化线 -> 做删除测试 -> 查是否连续多个阶段 -> 区分阶段性主次、转型、终局接管和副作用。 |
-| 共创功能 | 生成主辅分工表、弱化线回流动作、人物关系影响点、长期线低频功能和转型方案。 |
-| 删除测试 | 删除某发动机后，主要剧情是否基本成立；若成立且该线长期不足两项功能，则提高失衡风险。 |
-| 反事实测试 | 删除长期线索、删除现实端、删除隐藏端、删除人物关系、让规则复杂化、让旧发动机转型，检查是否误判。 |
-| 预期结果 | 多线不必每章等量出现，但连续阶段中每条重要线应承担目标、代价、限制、路径、结算、残留或牵引中的至少两项。 |
-| 可诊断范围 | 可诊断输入样稿中的多线功能缺失、长期线抢目标、现实线退场、人物线工具化。 |
-| 可共创范围 | 可共创每条线的目标、限制、路径、回流、残留和主辅分工。 |
-| 是否可以硬判 | 不可作为通用硬性失败判定；只有连续阶段和删除测试都满足时提高风险等级。 |
-| 适用边界 | 阶段性主次变化、发动机转型、终局接管、规则复杂化副作用、人物暂时低出场、功能迁移均不得直接判失衡。 |
-| 常见误判 | 把发动机转型判失败；把规则复杂化判失衡；把资源词减少判失衡；把人物低出场当人物线缺席。 |
-| 失效征兆 | 辅助线只剩口头动机；现实职业只作入口；长期线直接派任务；新能力把旧责任清零；人物关系不改变选择。 |
-| 修补动作 | 给弱化线安排实际目标、行动、限制、结算或后续责任；让其改变主角选择成本；降低长期线任务发布功能。 |
-| 超出本 Skill 范围的内容 | 多线卷纲、人物关系设计、终局收束、主线和副线权重。 |
-| 输出格式 | 发动机七项功能表；删除测试；分类判定；风险等级；修补建议。 |
+| Rule ID | `SE-F-002` |
+| Rule name | Formulaic repetition risk |
+| Type | Risk-diagnosis rule |
+| Definition | Risk rises when three or more cycles share the same activation, goal structure, constraints, solution, supporting-character functions, feedback, and settlement while only cosmetic labels change. |
+| Evidence threshold | At least three comparable cycles. |
+| Compare | Activation, goal, constraints, costly choices, action path, supporting-character function, mid-course change, feedback, gains/costs, next-stage start, emotional effect. |
+| Required distinction | Stable genre promise vs productive variation vs formulaic risk. |
+| Low risk | Core promise repeats but several structural variables evolve and old solutions stop being universally effective. |
+| Medium risk | Some major variables repeat, but consequences or choices still change. |
+| High risk | Three or more cycles are highly isomorphic; old solutions remain effective; supporting roles and feedback remain fixed; only names/locations change. |
+| Non-trigger boundaries | Recurrent missions, investigations, battles, or business projects are not automatically formulaic. |
+| Repair moves | Break the old solution, change who bears cost, alter external evaluation, shift supporting-character function, use partial success, or make prior residue constrain the next cycle. |
+| Hard-judgment boundary | Repetition risk is structural evidence, not a verdict that the genre formula itself is invalid. |
 
-七项功能：提出目标、制造不行动代价、限制选择、改变行动路径、产生可结算结果、留下永久状态、制造下一阶段问题。
+---
+
+## SE-F-003 — Multi-Engine Imbalance Risk
+
+| Field | Content |
+|---|---|
+| Rule ID | `SE-F-003` |
+| Rule name | Multi-engine imbalance risk |
+| Type | Risk-diagnosis rule |
+| Definition | Risk rises when one purported engine repeatedly contributes too few meaningful functions and can be removed without materially changing the main progression. |
+| Evidence threshold | Multiple engines across several stages; a single-stage snapshot is usually insufficient for strong claims. |
+| Seven-function check | Current goal; inaction cost; constraints/choices; changes action path; settleable result; persistent state; creates next-stage problem. |
+| Primary test | Delete one engine and see whether the main plot still works almost unchanged. |
+| Low risk | Primary/secondary division is clear and both lines have durable function. |
+| Medium risk | One line temporarily weakens or supports only a few functions. |
+| High risk | Across several stages one line repeatedly contributes fewer than two meaningful functions and deletion barely changes the plot. |
+| Non-trigger boundaries | Temporary asymmetry, rule complexity, or a deliberate secondary line is not automatic imbalance. |
+| Repair moves | Give the weak engine an independent objective/cost, make its results alter another engine's constraints, or explicitly demote it from “engine” to condition/theme/supporting line. |
+| Hard-judgment boundary | Do not judge the work failed merely because one engine is secondary or transitions out. |
+
+---
+
+## Shared operating boundaries
+
+1. Preserve user-confirmed canon and immutable constraints.
+2. Mark invented repairs as `[SUGGESTION]`, `[ASSUMPTION]`, or `[INFERENCE]`.
+3. Use `[UNVERIFIABLE]` when evidence thresholds are not met.
+4. Risk rules never replace close reading of the supplied material.
+5. Do not infer whole-work quality from one stage unless the user supplied enough evidence for that scope.
+6. Terminal closure is allowed to stop opening new objectives and instead resolve consequences, people, promises, relationships, public labels, and medium/location state.

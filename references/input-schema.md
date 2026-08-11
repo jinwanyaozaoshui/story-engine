@@ -1,83 +1,83 @@
-# 剧情发动机输入规范
+# Story Engine Input Schema
 
-## 请求模式
+## Request modes
 
-每次运行先判断用户请求属于哪类；不确定时按最小风险模式处理。
+Classify the request before running the framework. If uncertain, use the lowest-risk mode that fits the evidence.
 
-| 模式 | 触发信号 | 最低处理方式 |
+| Mode | Typical signal | Minimum handling |
 |---|---|---|
-| 快速诊断 | “帮我看看”“哪里弱”“能不能推进” | 诊断已有字段，标记无法验证项。 |
-| 灵感补全 | 一两句创意、设定碎片、人物处境 | 给 2-3 个带假设标记的发动机候选。 |
-| 阶段方案共创 | “帮我设计这一段/这一阶段” | 生成启动、目标、限制、选择、反馈、残留和牵引。 |
-| 连续阶段复核 | 两个或以上阶段、相邻剧情、卷内链条 | 检查承接、状态继承、半成功和删除测试。 |
-| 跨卷承接检查 | 换卷、换地图、换职业、换能力、换规则 | 重点使用 SE-F-001 和状态残留表。 |
-| 风险专项检查 | “是否公式化”“是否失衡”“是否重启” | 只在材料满足阈值时提高风险等级。 |
+| Quick diagnosis | “Take a look,” “what is weak,” “can this move?” | Diagnose supplied fields and mark unverifiable items. |
+| Idea completion | One or two sentences, fragmented setting, a character situation | Offer 2–3 engine candidates, each marked as an assumption or suggestion. |
+| Stage co-design | “Help design this stage/segment” | Build activation, goal, constraints, choices, feedback, residue, and next-stage pull. |
+| Multi-stage review | Two or more stages, adjacent events, within-volume chains | Check continuity, inherited state, partial success, and deletion tests. |
+| Cross-volume continuity | New volume, map, job, power, or rule set | Emphasize `SE-F-001` and residue inheritance. |
+| Focused risk review | “Is this formulaic?”, “imbalanced?”, “a restart?” | Raise risk only if evidence thresholds are met. |
 
-## 基础字段
+## Core fields
 
-| 字段 | 说明 |
+| Field | Meaning |
 |---|---|
-| 用户已确定内容 | 用户明确给出、要求保留或已经确认的内容。 |
-| 不可修改项 | 用户禁止改动的角色、世界规则、主题、职业、阶段事件或外壳。 |
-| 请求范围 | 诊断、补洞、生成候选、阶段链、跨卷承接或边界判断。 |
-| 主角持续欲望 | 主角长期想要什么，不能直接替代阶段目标。 |
-| 当前阶段目标 | 本阶段要完成什么，必须可验证、可失败、可结算。 |
-| 启动事件 | 为什么现在开始，最好来自上一阶段残留或外部压力。 |
-| 不行动代价 | 主角不处理会失去什么、暴露什么、错过什么或让责任怎样扩大。 |
-| 限制 | 资源、规则、身份、时间、关系、公开程度、环境、能力边界。 |
-| 可选方案 | 至少两个可选行动，且收益和代价不同。 |
-| 失败成本 | 失败或半失败会留下什么损失、责任、误解、伤害或公开后果。 |
-| 当前人物关系 | 谁信任、怀疑、阻碍、协助或索取主角。 |
-| 当前资源与身份 | 主角当前资源、权限、岗位、公开标签、组织位置。 |
-| 当前长期线索 | 长期真相是否出现；出现时是改变判断和选择，还是直接发布任务。 |
-| 已确认能力规则 | 能力的适用范围、触发条件、成本及媒介限制（若有）。 |
+| confirmed_content | Material explicitly supplied or approved by the user. |
+| immutable_items | Characters, rules, themes, roles, stage events, or shells the user forbids changing. |
+| request_scope | Diagnosis, gap repair, candidate generation, stage chain, continuity, or boundary judgment. |
+| protagonist_long_term_desire | What the protagonist wants over the long run; this cannot substitute for a current-stage goal. |
+| current_stage_goal | What must be settled now; it should be verifiable, fail-able, and closeable. |
+| activation_event | Why this begins now, ideally caused by inherited residue or external pressure. |
+| cost_of_inaction | What is lost, exposed, missed, or allowed to worsen if the protagonist does nothing. |
+| constraints | Resources, rules, identity, time, relationships, publicity, environment, and power limits. |
+| options | At least two actions whose gains and costs differ. |
+| failure_cost | What loss, duty, misunderstanding, harm, or public consequence remains after failure/partial failure. |
+| current_relationships | Who trusts, doubts, blocks, helps, or makes claims on the protagonist. |
+| resources_and_identity | Current resources, permissions, role, public label, and organizational position. |
+| long_term_clues | Whether long-term truth changes judgment/choice or merely issues tasks. |
+| confirmed_power_rules | Confirmed scope, trigger conditions, costs, and medium limits, if any. |
 
-输入不足时，只能输出“无法验证”“需要补充”或“只能做风险预警”。不得自行补写未知设定后宣布规则成立。
+If evidence is insufficient, output `[UNVERIFIABLE]`, a minimal missing-field request, or a risk warning. Do not invent unknown canon and then claim a rule is satisfied.
 
-## 规则选择
+## Rule selection
 
-| 任务类型 | 优先规则 | 追加输入 |
+| Task | Primary rule(s) | Additional evidence |
 |---|---|---|
-| 基础阶段能否推进 | SE-RC-001 | 阶段目标、限制、选择、反馈、残留、下一阶段牵引。 |
-| 资源驱动 | SE-RC-002 | 稀缺资源、获取限制、竞争或交换、使用代价、资源结果回流。 |
-| 反目标项目 | SE-RC-003 | 主角真实目标、外部评价规则、配角解释、结果偏差、项目反馈。 |
-| 现实与隐藏并行 | SE-RC-004 | 现实端目标、隐藏入口、隐藏风险、现实回流、两端删除测试。 |
-| 规则局 | SE-RC-005 | 规则文本、漏洞、失败代价、人物选择、局后关系和信息残留。 |
-| 跨阶段承接 | SE-F-001 | 上一阶段残留、下一阶段入口、删除上一阶段测试。 |
-| 连续循环重复 | SE-F-002 | 至少三轮启动、目标、限制、行动、配角功能、反馈、代价比较。 |
-| 多发动机并行 | SE-F-003 | 每条线七项功能、主辅分工、删除某发动机测试。 |
+| Basic stage viability | `SE-RC-001` | Goal, constraints, choices, feedback, residue, next-stage pull. |
+| Resource-driven plot | `SE-RC-002` | Scarcity, acquisition limits, competition/exchange, use cost, downstream consequence. |
+| Anti-goal project | `SE-RC-003` | True goal, external evaluation logic, supporting-character interpretation, result divergence, feedback. |
+| Reality + hidden parallel | `SE-RC-004` | Reality goal, hidden entry, hidden risk, reality-side return flow, two-sided deletion tests. |
+| Rule game / rule pressure | `SE-RC-005` | Rule text, exploit space, failure cost, character choice, post-game relationship/information residue. |
+| Cross-stage continuity | `SE-F-001` | Previous residue, next-stage entry, delete-previous-stage test. |
+| Repeating cycles | `SE-F-002` | At least three comparable loops across activation, goal, constraints, action, supporting roles, feedback, and cost. |
+| Multiple engines | `SE-F-003` | Seven-function check per engine, primary/secondary division, engine deletion test. |
 
-## 来源标记
+## Source labels
 
-| 标记 | 用法 |
+| Label | Meaning |
 |---|---|
-| 已确定 | 用户明确提供或确认。 |
-| 不可修改 | 用户要求保留或禁止改动。 |
-| 建议 | 可采纳、可替换的共创方案。 |
-| 推导 | 从已确定内容推出，但仍可被用户否定。 |
-| 假设 | 为测试临时设定，不得写成正式设定。 |
-| 无法验证 | 输入不足或缺连续材料。 |
-| 风险 | 只提示结构风险，不判作品失败。 |
+| `[CONFIRMED]` | Explicitly supplied or approved by the user. |
+| `[IMMUTABLE]` | User requires it to remain unchanged. |
+| `[SUGGESTION]` | Replaceable co-design proposal. |
+| `[INFERENCE]` | Derived from confirmed material but still falsifiable by the user. |
+| `[ASSUMPTION]` | Temporary test premise; never present as canon. |
+| `[UNVERIFIABLE]` | Insufficient evidence or missing continuity material. |
+| `[RISK]` | Structural risk indicator, not a quality verdict. |
 
-## 状态残留
+## Persistent residue
 
-必须检查八类状态，但不要求每阶段全部具备：
+Check all eight categories, but do not require every stage to change all eight.
 
-| 状态 | 检查问题 |
+| Category | Diagnostic question |
 |---|---|
-| 身份 | 主角身份、职位、阵营、角色定位是否改变。 |
-| 权限 | 主角能进入、调用、访问或命令什么是否改变。 |
-| 资源 | 物资、资金、情报、战力、机会或筹码是否改变。 |
-| 责任 | 是否新增债务、承诺、照看对象、组织任务或后果。 |
-| 关系 | 信任、怀疑、敌意、依赖、背叛或承诺是否改变。 |
-| 认知 | 主角或重要人物知道了什么，判断框架是否改变。 |
-| 公开标签 | 外界如何看待主角、组织或事件是否改变。 |
-| 媒介或场景状态 | 关键载体、地点、装置、场域是否留下新状态。 |
+| Identity | Did role, affiliation, position, or self/other classification change? |
+| Permission/access | What can the protagonist enter, call, use, or command now? |
+| Resources | Did money, material, information, power, opportunity, or leverage change? |
+| Responsibility | Did debt, promises, dependents, duties, or consequences increase/change? |
+| Relationships | Did trust, doubt, hostility, dependence, betrayal, or commitment change? |
+| Knowledge | What was learned, and did the decision framework change? |
+| Public label | How do outsiders now classify the protagonist, group, or event? |
+| Medium/location state | Did a key object, place, device, or field retain a new state? |
 
-## 能力规则通用自检
+## Power-rule self-check
 
-只使用以下通用表达：
+Use only this generic principle:
 
-> 能力应符合用户已经确认的适用范围、触发条件、成本及媒介限制（若有）。
+> A power should follow the scope, trigger conditions, costs, and medium constraints already confirmed by the user.
 
-不得把任何项目样稿中的能力口径写成所有作品的全局法则。
+Do not turn one example project's power rules into universal law.

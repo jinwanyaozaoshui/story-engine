@@ -1,175 +1,140 @@
-# 剧情发动机输出模板
+# Story Engine Output Templates
 
-输出应根据用户任务裁剪，不要机械展示全部规则字段。
+Trim outputs to the user's task. Do not mechanically display every field.
 
-## 诊断模式
+## Diagnosis mode
 
 ```markdown
-## 用户已确定内容
+## Confirmed material
 
-- [已确定] ...
-- [不可修改] ...
+- [CONFIRMED] ...
+- [IMMUTABLE] ...
 
-## 当前检查范围
+## Current scope
 
-- 模式：快速诊断 / 连续阶段复核 / 风险专项检查
-- 使用规则：SE-RC-001 + ...
-- 材料范围：单阶段 / 两个相邻阶段 / 三个循环 / 多线阶段链
+- Mode: quick diagnosis / multi-stage review / focused risk review
+- Rules: SE-RC-001 + ...
+- Evidence range: one stage / two adjacent stages / three loops / multi-engine chain
 
-## 总判定
+## Overall judgment
 
-- 结论：成立 / 基本成立但有缺口 / 只能预警 / 无法验证
-- 风险等级：低 / 中 / 高 / 无法判断
+- Conclusion: viable / viable with gaps / risk-only / unverifiable
+- Risk level: low / medium / high / unverifiable
 
-## 成立项
+## What is structurally present
 
-| 项 | 判断 |
+| Element | Judgment |
 |---|---|
-| 启动 | ... |
-| 当前目标 | ... |
-| 不行动代价 | ... |
-| 限制 | ... |
-| 选择 | ... |
-| 行动与反馈 | ... |
-| 收益与代价 | ... |
-| 永久残留 | ... |
-| 下一阶段牵引 | ... |
+| Activation | ... |
+| Current settleable goal | ... |
+| Cost of inaction | ... |
+| Constraints | ... |
+| Costly choices | ... |
+| Action/feedback | ... |
+| Gains/costs | ... |
+| Persistent residue | ... |
+| Next-stage pull | ... |
 
-## 结构缺口
+## Gaps / risks
 
-- [无法验证] ...
-- [风险] ...
+- [RISK] ...
+- [UNVERIFIABLE] ...
 
-## 删除测试结果
+## Minimal repair candidates
 
-- 删除上一阶段：...
-- 删除现实端 / 隐藏端 / 某发动机：...
-
-## 反事实测试结果
-
-- 部分成功：...
-- 旧办法失效：...
-- 任务发布者缺席：...
-- 规则复杂化或人物情绪：...
-
-## 修补动作
-
-1. [建议] ...
-2. [建议] ...
-
-## 无法验证项
-
-- ...
+- [SUGGESTION] ...
 ```
 
-## 共创模式
+## Stage co-design mode
 
 ```markdown
-## 已确定内容
+## Stage objective
 
-- [已确定] ...
-- [不可修改] ...
+[CONFIRMED] / [SUGGESTION] ...
 
-## 当前缺口
+### Activation
 
-- [无法验证] ...
-- [建议补强] ...
+[SUGGESTION] ...
 
-## 采用的发动机
+### Cost of inaction
 
-- 基础：SE-RC-001
-- 专项：SE-RC-002 / SE-RC-003 / SE-RC-004 / SE-RC-005
-- 风险检查：SE-F-001 / SE-F-002 / SE-F-003
+[SUGGESTION] ...
 
-## 方案 A
+### Constraints
 
-### 启动
+[SUGGESTION] ...
 
-[建议] ...
+### Costly choices
 
-### 当前目标
-
-[建议] ...
-
-### 不行动代价
-
-[建议] ...
-
-### 限制
-
-[建议] ...
-
-### 有代价选择
-
-| 选择 | 收益 | 代价 |
+| Choice | Gain | Cost |
 |---|---|---|
 | A1 | ... | ... |
 | A2 | ... | ... |
 
-### 行动与反馈
+### Action and feedback
 
-[建议] ...
+[SUGGESTION] ...
 
-### 收益与代价
+### Gains and costs
 
-- 收益：...
-- 代价：...
-- 半成功残留：...
+- Gain: ...
+- Cost: ...
+- Partial-success residue: ...
 
-### 永久状态残留
+### Persistent residue
 
-| 类型 | 残留 |
+| Type | Residue |
 |---|---|
-| 身份 | ... |
-| 权限 | ... |
-| 资源 | ... |
-| 责任 | ... |
-| 关系 | ... |
-| 认知 | ... |
-| 公开标签 | ... |
-| 媒介或场景状态 | ... |
+| Identity | ... |
+| Permission/access | ... |
+| Resources | ... |
+| Responsibility | ... |
+| Relationships | ... |
+| Knowledge | ... |
+| Public label | ... |
+| Medium/location state | ... |
 
-### 下一阶段牵引
+### Next-stage pull
 
-[建议] ...
+[SUGGESTION] ...
 
-### 风险检查
+### Risk check
 
-- 循环重启：...
-- 公式化：...
-- 多发动机失衡：...
+- Restart/continuity: ...
+- Formulaic repetition: ...
+- Multi-engine imbalance: ...
 ```
 
-## 三轮公式化比较
+## Three-cycle repetition comparison
 
 ```markdown
-| 循环 | 启动 | 目标 | 限制 | 选择 | 行动路径 | 配角功能 | 中途变化 | 反馈 | 收益与代价 | 下一阶段启动 | 情绪效果 |
+| Cycle | Activation | Goal | Constraints | Choices | Action path | Supporting-role function | Mid-course change | Feedback | Gains/costs | Next-stage start | Emotional effect |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 循环 1 |  |  |  |  |  |  |  |  |  |  |  |
-| 循环 2 |  |  |  |  |  |  |  |  |  |  |  |
-| 循环 3 |  |  |  |  |  |  |  |  |  |  |  |
+| 1 | | | | | | | | | | | |
+| 2 | | | | | | | | | | | |
+| 3 | | | | | | | | | | | |
 ```
 
-输出结论必须三分：
+The conclusion must distinguish:
 
-- 固定题材承诺；
-- 生产性变体；
-- 公式化风险。
+- stable genre promise;
+- productive variation;
+- formulaic repetition risk.
 
-## 多发动机功能表
+## Multi-engine function table
 
 ```markdown
-| 发动机线 | 当前目标 | 不行动代价 | 限制选择 | 改变行动路径 | 可结算结果 | 永久状态 | 下一阶段问题 | 功能数 | 判定 |
+| Engine | Current goal | Cost of inaction | Constraint/choice function | Changes action path | Settleable result | Persistent state | Next-stage problem | Function count | Judgment |
 |---|---|---|---|---|---|---|---|---:|---|
-| 发动机 A |  |  |  |  |  |  |  |  |  |
-| 发动机 B |  |  |  |  |  |  |  |  |  |
+| Engine A | | | | | | | | | |
+| Engine B | | | | | | | | | |
 ```
 
-只有连续多个阶段中某条线长期不足两项功能，并且删除后主要剧情仍基本成立，才提高失衡风险。
+Raise imbalance risk only when, across multiple stages, one line repeatedly contributes fewer than two meaningful functions and can be deleted while the main plot remains mostly intact.
 
-## 输出语气
+## Tone
 
-- 先保护用户已确定设定，再指出结构缺口。
-- 结论要直接，但风险规则不作作品质量审判。
-- 信息不足时给最小补充字段，不长篇追问。
-- 共创方案应当是可替换候选，不要伪装成唯一答案。
+- Protect confirmed canon before identifying gaps.
+- Be direct about structural findings, but do not turn risk rules into quality verdicts.
+- When evidence is insufficient, request only the minimum missing fields.
+- Co-design proposals are replaceable candidates, not the only possible answer.
