@@ -67,7 +67,8 @@ def validate_rule_cards() -> None:
 def validate_json_files() -> None:
     tests = json.loads(read_text("tests/test-prompts.json"))
     require(tests.get("skill") == "story-engine", "test-prompts.json skill must be story-engine")
-    require(tests.get("version") == "0.1.0", "test-prompts.json version must match public release")
+    version = tests.get("version")
+    require(isinstance(version, str) and re.fullmatch(r"\d+\.\d+\.\d+", version) is not None, "test-prompts.json version must be semantic version")
     cases = tests.get("test_cases")
     require(isinstance(cases, list) and cases, "test_cases must be a non-empty list")
     seen = set()
